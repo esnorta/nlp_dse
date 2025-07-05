@@ -1,0 +1,10 @@
+*DS_Store
+*.ipynb
+emotions_bert/*
+labeled_data/*
+.ipynb_checkpoint/*
+reference/*
+*.log
+*.out
+*.swp
+*.aux
