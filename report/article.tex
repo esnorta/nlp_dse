@@ -14,7 +14,7 @@
 \usepackage{algorithmicx}%
 \usepackage{algpseudocode}%
 \usepackage{listings}%
-
+\usepackage{rotating}
 
 \begin{document}
 
@@ -62,11 +62,41 @@ The GoEmotions dataset consists of 58,000 Reddit comments, each labeled with one
 Exploratory data analysis showed that the dataset is imbalanced. To address this, severely underrepresented classes were excluded, and only those emotions relevant to political discourse were retained—resulting in a set of 19 emotion classes.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=12cm]{f1-label_distribution.png}
+	\includegraphics[width=13cm]{f1-label_distribution.png}
 	\caption{Original class distribution in GoEmotions dataset}
 \end{figure}
 
-The model was compiled with the Adam optimizer (learning rate: 1e-5) and trained using the \texttt{SparseCategoricalCrossentropy} loss function and accuracy as the evaluation metric. Training was performed for 2 epochs with a batch size of 16, using a validation set to monitor performance and prevent overfitting.
+The model training parameters and performance metrics are summarised in Table 1.
+\begin{table}[h]
+	\caption{Model training parameters and performance metrics}\label{tab_2-1}%
+	\begin{tabular}{@{}p{4cm}p{4cm}}
+		\toprule
+		Optimizer & Adam \\ 
+		Learning Rate & 1e-5 \\ 
+		Number of epochs & 2 \\
+		Accuracy & 0.29\\ 
+		\botrule
+	\end{tabular}
+\end{table}
+
+The resulting accuracy can be considered reasonable given the complexity of the problem:
+\begin{itemize}
+	\item multi-classification problem with 19 classes; 
+	\item imbalance of the dataset;
+	\item emotional tone is subjective and each text can be classified differently by different experts.
+\end{itemize}
+
+The classification confusion matrix is shown in Figure 2.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{f2-confusion_matrix.png}
+	\caption{Confusion matrix of the classifier}
+\end{figure}
+
+
+
+
+
 
 
 
