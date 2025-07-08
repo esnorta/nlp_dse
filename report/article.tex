@@ -43,30 +43,39 @@ Emotional language is a powerful tool in political speeches, used to persuade, m
 
 This project aims to analyze the emotional language used by Donald Trump and Joe Biden in their speeches during the 2020 U.S. Presidential Election. Precisely, each candidate uses distinct communication strategies tailored to their target audiences, seeking to evoke specific emotional responses and strengthen their position.
 
-\subsection{Analysis methodology}
-
-The approach used comprises of building emotional profiles: the quantitative characteristic of how often different emotions(sentiments) used in the speech.
+The approach used comprises of building emotion profiles: the quantitative characteristic of how often different emotions(sentiments) used in the speech.
 Specifically the analysis focuses on:
 \begin{itemize}
-	\item emotional profile during a specific debate event;
-	\item comparison of emotional profiles across different debate events;
+
 	\item emotion flow throughout a single event;
+	\item emotion profile during a specific debate event;
+	\item comparison of emotional profiles across different debate events;
 	\item emotion distribution by topic.
 \end{itemize}
 
-\subsection{Model training}
-
 As part of the project, an emotion classification model was developed. The model is based on the pre-trained DistilBERT architecture, fine-tuned using the GoEmotions dataset. 
+
+%%%%%%%%%%%%%%%%%%%%%%   SECTION 3   %%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experimental results}\label{sec3}
+\subsection{Model training}
 
 The GoEmotions dataset consists of 58,000 Reddit comments, each labeled with one or more of 27 emotions or marked as Neutral, making it a multi-label classification task.
 Exploratory data analysis showed that the dataset is imbalanced. To address this, severely underrepresented classes were excluded, and only those emotions relevant to political discourse were retained—resulting in a set of 19 emotion classes.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=13cm]{f1-label_distribution.png}
+	\includegraphics[width=10cm]{f1-label_distribution.png}
 	\caption{Original class distribution in GoEmotions dataset}
 \end{figure}
 
 The model training parameters and performance metrics are summarised in Table 1.
+The resulting accuracy can be considered reasonable given the complexity of the problem:
+\begin{itemize}
+	\item multi-classification problem with 19 classes; 
+	\item imbalance of the dataset;
+	\item emotional tone is subjective and each text can be classified differently by different experts.
+\end{itemize}
+
+The classification confusion matrix is shown in Figure 2.
 \begin{table}[h]
 	\caption{Model training parameters and performance metrics}\label{tab_2-1}%
 	\begin{tabular}{@{}p{4cm}p{4cm}}
@@ -79,19 +88,28 @@ The model training parameters and performance metrics are summarised in Table 1.
 	\end{tabular}
 \end{table}
 
-The resulting accuracy can be considered reasonable given the complexity of the problem:
-\begin{itemize}
-	\item multi-classification problem with 19 classes; 
-	\item imbalance of the dataset;
-	\item emotional tone is subjective and each text can be classified differently by different experts.
-\end{itemize}
-
-The classification confusion matrix is shown in Figure 2.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=10cm]{f2-confusion_matrix.png}
+	\includegraphics[width=12cm]{f2-confusion_matrix.png}
 	\caption{Confusion matrix of the classifier}
 \end{figure}
+
+\subsection{Analysis of emotional language}
+This article presents the key insights, while the more detailed analysis is available in the accompanying Jupyter Notebook within the repository.
+
+\subsubsection{Emotion flow throughout a single event}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13cm]{f3-emotion_flow.png}
+	\caption{Emotion (sentiment)  flow}
+\end{figure}
+
+Fig. 3 demonstrates probabilities assigned by the classificator to speech during the 2nd Presidental Debates.
+The emotional language of Donald Trump is more disperse and variable. Many emotions are short-lived and alternate.
+Biden's language is more clustered: there are \texttt{series} of emotions. Also there are less \texttt{anger} spikes. This suggests the usage of more reflective, moral tone, while Trump prefers to stay unpredictable and provokable.
+
+In the speech of both an interesting pattern can be noted: the consequetive chain of negative emotions \texttt{disapproval} - \texttt{disappointment} - \texttt{curiosity} - \texttt{confusion} - \texttt{annoyance} highlighted with orange arrows.
 
 
 
