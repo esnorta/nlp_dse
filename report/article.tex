@@ -35,7 +35,15 @@
 
 This project explores how emotional language is used in political texts to influence perception and manipulate audience response. The data analyzed in the project is the transcription of US 2020 presidental debates available on Kaggle\footnote{US 2020 presidental debates: \\ https://www.kaggle.com/datasets/headsortails/us-election-2020-presidential-debates}. 
 
-Emotion classification models based on pre-trained BERT architectures have been shown to outperform other approaches (Hsu and Ku, 2018\footnote{https://doi.org/10.18653/v1/W18-3505}). To obtain emotion annotations, the DistilBERT Classifier\footnote{https://keras.io/keras_hub/api/models/distil_bert/distil_bert_text_classifier/} was fine-tuned using some techniques and methods discussed in `GoEmotions: A Dataset of Fine-Grained Emotions`\footnote{https://arxiv.org/abs/2005.00547}. 
+Emotion classification models based on pre-trained BERT architectures have been shown to outperform other approaches (Hsu and Ku, 2018\footnote{https://doi.org/10.18653/v1/W18-3505}). To obtain emotion annotations, the DistilBERT Classifier\footnote{https://keras.io/keras_hub/api/models/distil_bert/distil_bert_text_classifier/} was fine-tuned using some techniques and methods discussed in `GoEmotions: A Dataset of Fine-Grained Emotions`\footnote{https://arxiv.org/abs/2005.00547}.\\ 
+
+\textbf{AI Usage Disclaimer}
+
+Parts of this projects have been developed with the assistance of Generative AI tools. Specifically it was used to:
+\begin{itemize}
+	\item Perplexity AI as an exploration tool for fine-tuning practicies
+	\item ChatGPT to refine some parts of the report text
+\end{itemize}
 
 
 \section{Research question and methodology}\label{sec2}
@@ -89,9 +97,9 @@ The classification confusion matrix is shown in Figure 2.
 	\end{tabular}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=12cm]{f2-confusion_matrix.png}
+	\includegraphics[width=10cm]{f2-confusion_matrix.png}
 	\caption{Confusion matrix of the classifier}
 \end{figure}
 
@@ -172,7 +180,7 @@ Figure 8 shows the example of Trump using \texttt{admiration} in his speech.
 \subsection{Conclusion}
 
 The used model and methodology offer a foundation for emotion and sentiment analysis tasks.
-The analysis demonstrated that emotional language is used broadly in political speeches. In the events studied, both Biden and Trump exhibited distinct emotional profiles: Biden’s language tended to be more empathetic and thoughtful, while Trump’s style appeared more provocative, expressive, and self-assured.
+The analysis demonstrated that emotional language is used broadly in political speeches. In the events studied, both Biden and Trump exhibited distinct emotional profiles: Biden’s language tended to be more empathetic and thoughtful, while Trump’s style appeared more provocative, expressive, and self-assured.\\
 
 Future work could explore the following directions:
 
