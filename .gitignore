@@ -1,5 +1,4 @@
 *DS_Store
-*.ipynb
 emotions_bert/*
 labeled_data/*
 .ipynb_checkpoint/*
@@ -8,3 +7,5 @@ reference/*
 *.out
 *.swp
 *.aux
+.ipynb_checkpoints/*
+work/*
