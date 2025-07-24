@@ -9,3 +9,5 @@ reference/*
 *.aux
 .ipynb_checkpoints/*
 work/*
+*.swo
+*.key
